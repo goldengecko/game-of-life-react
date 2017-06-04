@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+body {
+    font-family: "open sans", "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #676a6c;
+    overflow-x: hidden;
+}
+
+h3 {
+	font-size:1.17em;
+	font-weight:bold;
+}
+
+h2 {
+	font-size:1.5em;
+	font-weight:bold;
+}
+
+h1 {
+	font-size:2em;
+	font-weight:bold;
+}
+
+.spaced {
+	padding-top: 1.25em;
+	padding-bottom: 1.25em;
+}
+
+/* 
+	Overrides for the input range component. 
+	Colors taken from Bootstrap primary. 
+	TODO: Switch to generating bootstrap and this css from scss so that the colors are only defined in one place.
+*/
+.input-range__track--active {
+	background: #0275d8;
+}
+
+.input-range__slider {
+	background: #0275d8;
+	border: 1px solid #0275d8;
+	touch-action: manipulation;
+}
+
+.input-range {
+	margin: 0.5rem 0 2rem 0;
+}
+
+
+
+.checkbox-style {
+	margin-right: 10px;
+}
+
+.spaced-buttons {
+	margin: 0 5px 5px 0;
+}
+
