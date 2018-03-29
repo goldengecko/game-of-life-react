@@ -246,7 +246,7 @@ class App extends Component {
           <Col md="4" sm="12" className="spaced">
             <Card>
               <CardImg src={logo} top  className="img-fluid" />
-              <CardBody>
+              <CardBody style={{padding:15}}>
                 <CardTitle>Game of Life</CardTitle>
                 <h3>Instructions</h3>
                 <ul>
@@ -257,7 +257,7 @@ class App extends Component {
                   <li>The number next to the birth/survival checkboxes indicate the number of neighbours required for birth of a new cell or survival of an existing cell.</li>
                 </ul>
               </CardBody>
-              <CardBody>
+              <CardBody style={{padding:15}}>
                 <h3>Settings</h3>
                 <FormGroup>
                   <Label for="rows">Number of Rows:</Label>
@@ -295,7 +295,7 @@ class App extends Component {
               {
                 // Control buttons
               }
-              <CardBody>
+              <CardBody style={{padding:15}}>
                 <Button color="secondary" className="spaced-buttons" onMouseDown={e => e.preventDefault()} onClick={this.clearBoard}>Clear</Button>
                 <Button color="secondary" className="spaced-buttons" onMouseDown={e => e.preventDefault()} onClick={this.randomize}>Randomize</Button>
                 <Button color={this.state.running ? 'danger' : 'success'} className="spaced-buttons" onClick={this.handleRun}>{this.state.running ? 'Stop' : 'Start'}</Button>
@@ -303,7 +303,7 @@ class App extends Component {
               {
                 // This is where the status information is displayed
               }
-              <CardBody>
+              <CardBody style={{paddingLeft:15, paddingRight:15}}>
                 {this.state.running &&
                   <Alert>Current generation: {this.state.currentGeneration}</Alert>
                 }
