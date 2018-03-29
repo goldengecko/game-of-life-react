@@ -1,13 +1,17 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
+        "ecmaVersion": 8,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
-            "jsx": true
+            "jsx": true,
+            "arrowFunctions": true
         },
         "sourceType": "module"
     },
@@ -15,6 +19,7 @@
         "react"
     ],
     "rules": {
+        "strict": 0,
         "indent": [
             "error",
             2,
@@ -29,14 +34,14 @@
             "never"
         ],
         "comma-dangle": [
-            "error", 
+            "error",
             "always-multiline"
         ],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "no-console": [
-            "warn", 
-            { "allow": ["warn", "error"] }
+            "warn",
+            { "allow": ["info", "warn", "error"] }
         ],
         "global-require": "off",
         "no-new": "off",
@@ -45,9 +50,11 @@
         "generator-star-spacing": [
             "error", "before"
         ],
-        "camelcase":"off"
+        "camelcase":"off",
+        "no-empty": ["error", {"allowEmptyCatch" : true}]
     },
     "globals": {
-        "require": true
+        "require": true,
+        "__DEV__": false
     }
 }

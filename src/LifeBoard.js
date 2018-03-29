@@ -33,7 +33,7 @@ export default class LifeBoard extends React.Component {
   /**
    * Called whenever the size of the grid area changes
    */
-  updateDimensions() {
+  updateDimensions = () => {
     const myNode = ReactDOM.findDOMNode(this)
     let width = myNode.getBoundingClientRect().width
 

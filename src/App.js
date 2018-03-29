@@ -41,14 +41,6 @@ class App extends Component {
       currentGeneration: 0,
       exitReason: '',
     }
-
-    this.handleChecked = this.handleChecked.bind(this)
-    this.handleRun = this.handleRun.bind(this)
-    this.randomize = this.randomize.bind(this)
-    this.clearBoard = this.clearBoard.bind(this)
-    this.handleCellClicked = this.handleCellClicked.bind(this)
-    this.nextFrame = this.nextFrame.bind(this)
-    this.countAdjacentCells = this.countAdjacentCells.bind(this)
   }
 
   /**
@@ -61,7 +53,7 @@ class App extends Component {
   /**
    * Initialize the board with randomly selected cells
    */
-  randomize(event) {
+  randomize = (event) => {
     let state = {}
     for (let row = 0 ; row < this.state.rows ; row ++ ) {
       for (let col = 0 ; col < this.state.columns; col ++ ) {
@@ -83,7 +75,7 @@ class App extends Component {
   /**
    * Empty all the cells
    */
-  clearBoard() {
+  clearBoard = () => {
     let state = {}
     for (let row = 0 ; row < this.state.rows ; row ++ ) {
       for (let col = 0 ; col < this.state.columns; col ++ ) {
@@ -102,7 +94,7 @@ class App extends Component {
    * Update the state to reflect changes to the birth and survival checkboxes.
    * The data-rule attribute is used to pass in the birth or survival identifier.
    */
-  handleChecked(event) {
+  handleChecked = (event) => {
     var newState = {}
     newState[event.target.getAttribute('data-rule')] = event.target.checked
     this.setState(newState)
@@ -111,7 +103,7 @@ class App extends Component {
   /**
    * Either start or stop the running of the simulation.
    */
-  handleRun() {
+  handleRun = () => {
     const shouldRun = !this.state.running
     this.setState({running: shouldRun})
 
@@ -133,7 +125,7 @@ class App extends Component {
   /**
    * Go to the next frame in the animation by sorting out which cells should be born and which should die.
    */
-  nextFrame() {
+  nextFrame = () => {
     let selection = Object.assign({}, this.state.selection)
 
     let stateChanged = false
@@ -205,7 +197,7 @@ class App extends Component {
   /**
    * Called when the user clicks on a cell on the board to toggle it.
    */
-  handleCellClicked(row, column) {
+  handleCellClicked = (row, column) => {
     let selection = Object.assign({}, this.state.selection)
 
     selection[[row,column]] = selection[[row,column]] ? 0: 1
@@ -220,7 +212,7 @@ class App extends Component {
    * Count the number of cells adjacent to the given location which are on. This checks up to 8 cells
    * but needs to respect edges too.
    */
-  countAdjacentCells(row, col) {
+  countAdjacentCells = (row, col) => {
     if (row < 0 || row > this.state.rows-1 || col < 0 || col > this.state.columns-1) {
       // TODO: Handle error nicely
       return 0
