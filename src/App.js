@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from './genetics.jpg'
-import { Container, Row, Col, Card, CardImg, CardTitle, CardBlock, FormGroup, Label, Input, Button, Alert } from 'reactstrap'
+import { Container, Row, Col, Card, CardImg, CardTitle, CardBody, FormGroup, Label, Input, Button, Alert } from 'reactstrap'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
 
@@ -246,7 +246,7 @@ class App extends Component {
           <Col md="4" sm="12" className="spaced">
             <Card>
               <CardImg src={logo} top  className="img-fluid" />
-              <CardBlock>
+              <CardBody>
                 <CardTitle>Game of Life</CardTitle>
                 <h3>Instructions</h3>
                 <ul>
@@ -256,8 +256,8 @@ class App extends Component {
                   <li>Change the birth and survival rules using the provided checkboxes.</li>
                   <li>The number next to the birth/survival checkboxes indicate the number of neighbours required for birth of a new cell or survival of an existing cell.</li>
                 </ul>
-              </CardBlock>
-              <CardBlock>
+              </CardBody>
+              <CardBody>
                 <h3>Settings</h3>
                 <FormGroup>
                   <Label for="rows">Number of Rows:</Label>
@@ -291,26 +291,26 @@ class App extends Component {
                   <Label for="fps">Animation speed (fps):</Label>
                   <InputRange id="fps" minValue={1} maxValue={20} value={this.state.fps} onChange={fps => this.setState({ fps })}/>
                 </FormGroup>
-              </CardBlock>
+              </CardBody>
               {
                 // Control buttons
               }
-              <CardBlock>
+              <CardBody>
                 <Button color="secondary" className="spaced-buttons" onMouseDown={e => e.preventDefault()} onClick={this.clearBoard}>Clear</Button>
                 <Button color="secondary" className="spaced-buttons" onMouseDown={e => e.preventDefault()} onClick={this.randomize}>Randomize</Button>
                 <Button color={this.state.running ? 'danger' : 'success'} className="spaced-buttons" onClick={this.handleRun}>{this.state.running ? 'Stop' : 'Start'}</Button>
-              </CardBlock>
+              </CardBody>
               {
                 // This is where the status information is displayed
               }
-              <CardBlock>
+              <CardBody>
                 {this.state.running &&
                   <Alert>Current generation: {this.state.currentGeneration}</Alert>
                 }
                 {!this.state.running && this.state.exitReason &&
                   <Alert>{this.state.exitReason}</Alert>
                 }
-              </CardBlock>
+              </CardBody>
             </Card>
           </Col>
           {
@@ -318,9 +318,9 @@ class App extends Component {
           }
           <Col  md="8" sm="12" className="spaced">
             <Card>
-              <CardBlock>
+              <CardBody>
                 <LifeBoard rows={this.state.rows} columns={this.state.columns} selection={this.state.selection} handleCellClicked={this.handleCellClicked}/>
-              </CardBlock>
+              </CardBody>
             </Card>
           </Col>
         </Row>
